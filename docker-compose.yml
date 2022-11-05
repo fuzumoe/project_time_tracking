@@ -1,0 +1,45 @@
+version: '3.8'
+
+volumes:
+  postgres-data:
+    driver: local
+  pgadmin-data:
+    driver: local
+
+services:
+  postgres:
+    image: postgres:12.2
+    restart: always
+    environment:
+      POSTGRES_DB: time_tracking
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: s0m3_Th1ng
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./backend_plentific/data/db/:/docker-entrypoint-initdb.d/
+
+  backend:
+    restart: always
+    container_name: backend
+    image: registry.digitalocean.com/plentific/backend_plentific:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/code/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    environment:
+      ENVIRONMENT: development
+      DJANGO_ALLOWED_HOSTS: localhost 127.0.0.1 [::1]
+      DJANGO_SETTINGS_MODULE: "project_time_tracking.settings.development"
+      SQL_ENGINE: "django.db.backends.postgresql"
+      SQL_DATABASE: time_tracking
+      SQL_USER: postgres
+      SQL_PASSWORD: s0m3_Th1ng
+      SQL_HOST: postgres
+      SQL_PORT: 5432
