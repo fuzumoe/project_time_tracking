@@ -71,6 +71,32 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project_time_tracking.wsgi.application'
 
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Plentificc API',
+    'DESCRIPTION': 'plentific code challenge',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'SERVE_AUTHENTICATION': None,
+    'SECURITY_DEFINITIONS': None
+
+}
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': None
+}
+
+REST_FRAMEWORK = {
+    # other settings...
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        "rest_framework.authentication.AllowAny",
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [],
+}
+WSGI_APPLICATION = 'backend_plentific.wsgi.application'
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

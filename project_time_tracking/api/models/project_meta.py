@@ -18,9 +18,9 @@ class ProjectMember(models.Model):
         (PENDING, 'Pending'),
         (ENROLLED, 'Enrolled')
     )
-    member = models.ManyToManyField(to='api.User')
+    member = models.ManyToManyField(to='api.User', )
     project = models.ManyToManyField(to='api.Project', )
-    enrollment_status = models.CharField(max_length=200, choices=CHOICES_STATUS, default=PENDING)
+    enrollment_status = models.CharField(max_length=200, choices=CHOICES_STATUS, default=PENDING, null=True)
 
     class Meta:
         app_label = "api"
@@ -34,7 +34,7 @@ class Task(models.Model):
         (COMPLETED, 'Complted')
     )
     project = models.ManyToManyField(to='api.Project',)
-    logs = models.ForeignKey(to='api.TaskLog', related_name="logs", on_delete=models.DO_NOTHING)
+    logs = models.ForeignKey(to='api.TaskLog', related_name="logs", on_delete=models.DO_NOTHING, null=True)
     description = models.TextField(blank=False, null=False)
     time_required = models.TextField(blank=False, null=False, validators=[validators.validate_time_data])
     time_spent = models.TextField(blank=False, null=False, validators=[validators.validate_time_data])

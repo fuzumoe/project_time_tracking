@@ -6,7 +6,7 @@ ALLOWED_HOSTS = ["*"]
 DEBUG = True
 
 SECRET_KEY = "k*m4vk6^1_#h3ux3v^j_6&kn*31kazepkj581yr(!6(33hj-s"
-TEST_RUNNER = 'backend_plentific.test_runner.TestRunner'
+
 
 DATABASES = {
     "default": {
@@ -19,4 +19,3 @@ DATABASES = {
     },
 
 }
-

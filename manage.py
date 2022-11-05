@@ -6,7 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    environment = os.getenv("ENVIRONMENT", "development")
+    environment = os.getenv("ENVIRONMENT", "test")
     settings = f"project_time_tracking.settings.{environment}"
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings)
     try:

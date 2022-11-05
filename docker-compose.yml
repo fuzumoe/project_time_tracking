@@ -43,3 +43,15 @@ services:
       SQL_PASSWORD: s0m3_Th1ng
       SQL_HOST: postgres
       SQL_PORT: 5432
+
+
+  backend_test:
+    restart: always
+    container_name: backend
+    image: registry.digitalocean.com/plentific/backend_plentific:latest
+    volumes:
+      - .:/code/
+    environment:
+      ENVIRONMENT: development
+      DJANGO_ALLOWED_HOSTS: localhost 127.0.0.1 [::1]
+      DJANGO_SETTINGS_MODULE: "project_time_tracking.settings.test"
