@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-ke*a1!6%f^nqyq+q(g!v)sg*td9ot7piup&p5t_3^iy2u)@p3g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+APPEND_SLASH = False
+
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
@@ -72,8 +74,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'project_time_tracking.wsgi.application'
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Plentificc API',
-    'DESCRIPTION': 'plentific code challenge',
+    'TITLE': 'Project Time Tracking API',
+    'DESCRIPTION': 'Project time tracking code challenge',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     'SERVE_AUTHENTICATION': None,

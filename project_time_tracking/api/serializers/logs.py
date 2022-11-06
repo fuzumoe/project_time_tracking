@@ -8,6 +8,6 @@ class TaskLogSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = TaskLog
-        fields = ['id', 'title', ]
+        fields = ['url', 'id', 'title', ]
         read_only_fields = ['id', 'task', ]
         depth = 1

@@ -18,7 +18,7 @@ services:
       - '5432:5432'
     volumes:
       - postgres-data:/var/lib/postgresql/data
-#      - ./backend_plentific/data/db/:/docker-entrypoint-initdb.d/
+      - ./data/db/:/docker-entrypoint-initdb.d/
 
   backend:
     restart: always
@@ -45,13 +45,15 @@ services:
       SQL_PORT: 5432
 
 
-  backend_test:
-    restart: always
-    container_name: backend
-    image: registry.digitalocean.com/plentific/backend_plentific:latest
-    volumes:
-      - .:/code/
-    environment:
-      ENVIRONMENT: development
-      DJANGO_ALLOWED_HOSTS: localhost 127.0.0.1 [::1]
-      DJANGO_SETTINGS_MODULE: "project_time_tracking.settings.test"
+#  backend_test:
+#    restart: always
+#    container_name: backend_test
+#    image: registry.digitalocean.com/plentific/backend_plentific:latest
+#    ports:
+#      - "8020:8000"
+#    volumes:
+#      - .:/code/
+#    environment:
+#      ENVIRONMENT: development
+#      DJANGO_ALLOWED_HOSTS: localhost 127.0.0.1 [::1]
+#      DJANGO_SETTINGS_MODULE: "project_time_tracking.settings.test"

@@ -13,7 +13,7 @@ class ProjectMemberSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = ProjectMember
-        fields = ['id', 'member', 'project', 'enrollment_status', ]
+        fields = ['url', 'id', 'member', 'project', 'enrollment_status', ]
         read_only_fields = ['id', 'member', 'project', ]
         depth = 1
 

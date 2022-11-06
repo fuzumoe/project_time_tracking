@@ -13,6 +13,6 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Project
-        fields = ['id', 'title', 'description', 'owner', 'members', 'tasks', 'num_of_members', 'created_at', ]
+        fields = ['url', 'id', 'title', 'description', 'owner', 'members', 'tasks', 'num_of_members', 'created_at', ]
         read_only_fields = ['id', 'owner', 'members', 'tasks', ]
         depth = 1

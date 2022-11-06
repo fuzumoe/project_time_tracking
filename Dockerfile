@@ -37,7 +37,7 @@ RUN chmod u+x /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 # Set start command
-CMD ["gunicorn",  "--timeout", "120","--workers","5","--reload", "--bind", "0.0.0.0:8000","backend_plentific.wsgi"]
+CMD ["gunicorn",  "--timeout", "120","--workers","5","--reload", "--bind", "0.0.0.0:8000","project_time_tracking.wsgi"]
 
 # Expose container's port 8000 2222
 EXPOSE 8000 2222
